@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/RealEstateListing.API/RealEstateListing.API.csproj" />
+    <Project Path="src/RealEstateListing.Application/RealEstateListing.Application.csproj" />
+    <Project Path="src/RealEstateListing.Domain/RealEstateListing.Domain.csproj" />
+    <Project Path="src/RealEstateListing.Infrastructure/RealEstateListing.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RealEstateListing.Application.UnitTests/RealEstateListing.Application.UnitTests.csproj" />
+    <Project Path="tests/RealEstateListing.Domain.UnitTests/RealEstateListing.Domain.UnitTests.csproj" />
+    <Project Path="tests/RealEstateListing.IntegrationTests/RealEstateListing.IntegrationTests.csproj" />
+  </Folder>
+</Solution>
