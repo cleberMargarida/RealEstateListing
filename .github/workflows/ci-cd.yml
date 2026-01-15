@@ -248,4 +248,4 @@ jobs:
       with:
         resourceGroup: rg-realestate-prod
         containerAppName: ca-realestate-api
-        imageToDeploy: docker.io/clebermargarida/realestatelisting:${{ github.sha }}
+        imageToDeploy: docker.io/clebermargarida/realestatelisting:latest
