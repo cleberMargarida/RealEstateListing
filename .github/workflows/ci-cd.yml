@@ -230,3 +230,22 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+
+  deploy-to-azure:
+    name: Deploy to Azure Container Apps
+    needs: [publish-image]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    
+    steps:
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy to Container Apps
+      uses: azure/container-apps-deploy-action@v2
+      with:
+        resourceGroup: rg-realestate-prod
+        containerAppName: ca-realestate-api
+        imageToDeploy: docker.io/clebermargarida/realestatelisting:${{ github.sha }}
