@@ -26,7 +26,7 @@ public class ListingsController(IListingService service) : ControllerBase
     [HttpGet("{id:guid}")]
     [Tags("Listings Retrieval")]
     [ProducesResponseType(typeof(ListingResponse), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ListingResponse>> GetById(Guid id, CancellationToken ct)
     {
         var dto = await service.GetByIdAsync(id, ct);
@@ -41,7 +41,7 @@ public class ListingsController(IListingService service) : ControllerBase
     [HttpPost]
     [Tags("Listings Management")]
     [ProducesResponseType(typeof(ListingResponse), StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<ListingResponse>> Create([FromBody] CreateListingRequest request, CancellationToken ct)
     {
         var createDto = request.ToDto();
@@ -57,8 +57,8 @@ public class ListingsController(IListingService service) : ControllerBase
     [HttpPut("{id:guid}")]
     [Tags("Listings Management")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Update(Guid id, [FromBody] UpdateListingRequest request, CancellationToken ct)
     {
         var updateDto = request.ToDto();
@@ -72,8 +72,8 @@ public class ListingsController(IListingService service) : ControllerBase
     [HttpPatch("{id:guid}/publish")]
     [Tags("Listings Management")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Publish(Guid id, CancellationToken ct)
     {
         await service.PublishAsync(id, ct);
@@ -86,8 +86,8 @@ public class ListingsController(IListingService service) : ControllerBase
     [HttpPatch("{id:guid}/archive")]
     [Tags("Listings Management")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Archive(Guid id, CancellationToken ct)
     {
         await service.ArchiveAsync(id, ct);
@@ -100,7 +100,7 @@ public class ListingsController(IListingService service) : ControllerBase
     [HttpDelete("{id:guid}")]
     [Tags("Listings Management")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
     {
         await service.DeleteAsync(id, ct);

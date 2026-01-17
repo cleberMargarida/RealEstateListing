@@ -34,6 +34,8 @@ public static class WebApiExtensions
                     c.IncludeXmlComments(xmlPath);
                 }
             }
+
+            c.SchemaFilter<RealEstateListing.API.Swagger.SwaggerSchemaExamplesFilter>();
         });
 
         return services;

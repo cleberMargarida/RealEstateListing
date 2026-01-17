@@ -87,13 +87,15 @@ public class ListingService(IUnitOfWork unitOfWork) : IListingService
             if (dto.Address.HasValue)
                 listing.UpdateAddress(dto.Address);
 
-            switch (dto.Status)
+            if (listing.Status != dto.Status)
             {
-                case ListingStatus.Published: listing.Publish(); break;
-                case ListingStatus.Archived: listing.Archive(); break;
-                case ListingStatus.Draft: listing.Reactivate(); break;
+                switch (dto.Status)
+                {
+                    case ListingStatus.Published: listing.Publish(); break;
+                    case ListingStatus.Archived: listing.Archive(); break;
+                    case ListingStatus.Draft: listing.Reactivate(); break;
+                }
             }
-
         }, ct);
     }
 
