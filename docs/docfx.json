@@ -31,14 +31,15 @@
       }
     ],
     "resource": [
-      { "files": ["images/**"], "exclude": ["_site/**", "obj/**"] }
+      { "files": ["images/**"], "exclude": ["_site/**", "obj/**"] },
+      { "files": ["logo*.png", "logo*.svg"], "exclude": ["_site/**", "obj/**"] }
     ],
     "output": "../bin/docs",
     "template": ["default", "modern"],
     "globalMetadata": {
       "_appTitle": "Real Estate Listing API Documentation",
       "_appName": "Real Estate Listing API",
-      "_appLogoPath": "images/logo.png",
+      "_appLogoPath": "logo.png",
       "_enableSearch": true,
       "_appFooter": "<span>Maintained by <a href=\"https://github.com/cleberMargarida\">Cleber Margarida</a>.</span>",
       "_gitContribute": { "repo": "https://github.com/cleberMargarida/real-estate-listing", "branch": "master" }

@@ -25,7 +25,7 @@ A modern, opinionated REST API for managing real estate property listings.
 
 <div class="badges">
 
-[![Build Status](https://github.com/cleberMargarida/real-estate-listing/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/cleberMargarida/real-estate-listing/actions/workflows/ci-cd.yml)
+[![.NET CI/CD](https://github.com/cleberMargarida/RealEstateListing/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/cleberMargarida/RealEstateListing/actions/workflows/ci-cd.yml)
 [![codecov](https://codecov.io/gh/cleberMargarida/real-estate-listing/graph/badge.svg)](https://codecov.io/gh/cleberMargarida/real-estate-listing)
 [![Docker](https://img.shields.io/docker/v/clebermargarida/realestatelisting?label=docker&logo=docker)](https://hub.docker.com/r/clebermargarida/realestatelisting)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/cleberMargarida/real-estate-listing/blob/master/LICENSE)
@@ -34,7 +34,7 @@ A modern, opinionated REST API for managing real estate property listings.
 
 <div class="cta-buttons">
   <a href="getting-started/index.md" class="cta-primary">Get Started</a>
-  <a href="api/index.md" class="cta-secondary">API Reference</a>
+  <a href="https://ca-realestate-api.thankfulstone-3c733688.brazilsouth.azurecontainerapps.io/swagger/index.html" class="cta-secondary" target="_blank" rel="noopener">API Reference (Swagger)</a>
 </div>
 
 </div>

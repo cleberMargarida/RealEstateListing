@@ -255,7 +255,6 @@ jobs:
 
   documentation:
     name: Build and Deploy Documentation
-    needs: [test-report]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     permissions:

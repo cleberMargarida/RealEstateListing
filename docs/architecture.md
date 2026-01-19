@@ -20,7 +20,8 @@ flowchart TB
   subgraph "Infrastructure Layer"
     I["RealEstateListing.Infrastructure<br/>(EF Core DbContext, Migrations, Repos)"]
   end
-  API --> AC --> D --> I
+  API --> AC --> D
+  I --> D
 ```
 
 ## Layer Responsibilities

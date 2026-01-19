@@ -1,6 +1,6 @@
 # Real Estate Listing API
 
-[![.NET CI/CD](https://github.com/cleberMargarida/real-estate-listing/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/cleberMargarida/real-estate-listing/actions/workflows/ci-cd.yml)
+[![.NET CI/CD](https://github.com/cleberMargarida/RealEstateListing/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/cleberMargarida/RealEstateListing/actions/workflows/ci-cd.yml)
 [![codecov](https://codecov.io/gh/cleberMargarida/real-estate-listing/graph/badge.svg)](https://codecov.io/gh/cleberMargarida/real-estate-listing)
 [![Docker Image](https://img.shields.io/docker/v/clebermargarida/realestatelisting?label=docker&logo=docker)](https://hub.docker.com/r/clebermargarida/realestatelisting)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -57,7 +57,8 @@ flowchart TB
   subgraph Infrastructure Layer
     I["RealEstateListing.Infrastructure<br/>(EF Core DbContext, Migrations, Repos)"]
   end
-  API --> AC --> D --> I
+  API --> AC --> D
+  I --> D
 ```
 
 See the [architecture diagram](docs/architecture.md) for more details.
