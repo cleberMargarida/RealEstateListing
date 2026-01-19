@@ -12,13 +12,12 @@ A small, opinionated REST API for managing real estate property listings. Built 
 </p>
 
 <p align="center">
-  <a href="https://clebermargarida.github.io/real-estate-listing/getting-started/quick-start.html">Quick Start</a>
+  <a href="https://clebermargarida.github.io/RealEstateListing/getting-started/index.html">Quick Start</a>
   ·
-  <a href="https://clebermargarida.github.io/real-estate-listing/api/">API Reference</a>
+  <a href="https://clebermargarida.github.io/RealEstateListing/api/RealEstateListing.API.Controllers.html">API Reference</a>
   ·
   <a href="https://ca-realestate-api.thankfulstone-3c733688.brazilsouth.azurecontainerapps.io/swagger/index.html">Live Demo</a>
   ·
-  <a href="https://github.com/cleberMargarida/real-estate-listing/issues">Report Bug</a>
 </p>
 
 ---
