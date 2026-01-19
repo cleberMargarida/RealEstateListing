@@ -1,0 +1,25 @@
+- name: Getting Started
+  items:
+  - name: Overview
+    href: ../getting-started/index.md
+  - name: Installation
+    href: ../getting-started/installation.md
+  - name: Quick Start
+    href: ../getting-started/quick-start.md
+
+- name: Architecture
+  items:
+  - name: Overview
+    href: ../architecture/index.md
+
+- name: API Endpoints
+  items:
+  - name: Listings
+    href: ../api-endpoints/listings.md
+
+- name: Deployment
+  items:
+  - name: Docker
+    href: ../deployment/docker.md
+  - name: Azure Container Apps
+    href: ../deployment/azure.md

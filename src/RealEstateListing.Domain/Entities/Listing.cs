@@ -51,8 +51,8 @@ public class Listing
         if (string.IsNullOrWhiteSpace(title))
             throw new DomainException("Title must have a value.");
 
-        if (!price.HasValue || price == Money.Zero)
-            throw new DomainException("Price must have an monetary value.");
+        if (!price.HasValue || price == Money.Zero || price.Value.Amount < 0m)
+            throw new DomainException("Price must be a positive monetary value.");
 
         return new Listing
         {
@@ -128,7 +128,12 @@ public class Listing
             Description = description;
 
         if (price.HasValue)
+        {
+            if (price == Money.Zero || price.Value.Amount < 0m)
+                throw new DomainException("Price must be a positive monetary value.");
+
             Price = price.Value;
+        }
 
         UpdatedAt = DateTime.UtcNow;
     }

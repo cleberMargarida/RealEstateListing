@@ -90,6 +90,28 @@ public class ListingUpdateTests
     }
 
     [Fact]
+    public void UpdateDetails_WithZeroPrice_ThrowsDomainException()
+    {
+        // Arrange
+        var listing = CreateDraftListing();
+
+        // Act & Assert
+        var ex = Assert.Throws<DomainException>(() => listing.UpdateDetails("New Title", Money.Zero));
+        Assert.Contains("Price must be a positive monetary value", ex.Message);
+    }
+
+    [Fact]
+    public void UpdateDetails_WithNegativePrice_ThrowsDomainException()
+    {
+        // Arrange
+        var listing = CreateDraftListing();
+
+        // Act & Assert
+        var ex = Assert.Throws<DomainException>(() => listing.UpdateDetails("New Title", new Money(-500m, CurrencyCode.USD)));
+        Assert.Contains("Price must be a positive monetary value", ex.Message);
+    }
+
+    [Fact]
     public void UpdateAddress_OnDraftListing_UpdatesAddress()
     {
         // Arrange

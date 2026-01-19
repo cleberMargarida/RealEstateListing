@@ -69,7 +69,7 @@ public class ListingCreateTests
     {
         // Act & Assert
         var ex = Assert.Throws<DomainException>(() => Listing.Create("Title", null));
-        Assert.Contains("Price must have an monetary value", ex.Message);
+        Assert.Contains("Price must be a positive monetary value", ex.Message);
     }
 
     [Fact]
@@ -77,7 +77,23 @@ public class ListingCreateTests
     {
         // Act & Assert
         var ex = Assert.Throws<DomainException>(() => Listing.Create("Title", Money.Zero));
-        Assert.Contains("Price must have an monetary value", ex.Message);
+        Assert.Contains("Price must be a positive monetary value", ex.Message);
+    }
+
+    [Fact]
+    public void Create_WithNegativePrice_ThrowsDomainException()
+    {
+        // Act & Assert
+        var ex = Assert.Throws<DomainException>(() => Listing.Create("Title", new Money(-100m, CurrencyCode.USD)));
+        Assert.Contains("Price must be a positive monetary value", ex.Message);
+    }
+
+    [Fact]
+    public void Create_WithNegativePrice_FromFactory_ThrowsDomainException()
+    {
+        // Act & Assert
+        var ex = Assert.Throws<DomainException>(() => Listing.Create("Title", Money.FromDollar(-250m)));
+        Assert.Contains("Price must be a positive monetary value", ex.Message);
     }
 
     [Fact]
